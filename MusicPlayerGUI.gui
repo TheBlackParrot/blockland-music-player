@@ -1,0 +1,125 @@
+//--- OBJECT WRITE BEGIN ---
+new GuiControl(MusicPlayerGUI) {
+   profile = "GuiDefaultProfile";
+   horizSizing = "right";
+   vertSizing = "bottom";
+   position = "0 0";
+   extent = "640 480";
+   minExtent = "8 2";
+   enabled = "1";
+   visible = "1";
+   clipToParent = "1";
+
+   new GuiWindowCtrl() {
+      profile = "GuiWindowProfile";
+      horizSizing = "right";
+      vertSizing = "bottom";
+      position = "194 117";
+      extent = "220 303";
+      minExtent = "220 185";
+      enabled = "1";
+      visible = "1";
+      clipToParent = "1";
+      command = "canvas.popDialog(MusicPlayerGUI);";
+      accelerator = "escape";
+      text = "TheBlackParrot\'s Music Player";
+      maxLength = "255";
+      resizeWidth = "0";
+      resizeHeight = "1";
+      canMove = "1";
+      canClose = "1";
+      canMinimize = "0";
+      canMaximize = "0";
+      minSize = "50 50";
+      closeCommand = "canvas.popDialog(MusicPlayerGUI);";
+
+      new GuiSwatchCtrl() {
+         profile = "GuiDefaultProfile";
+         horizSizing = "width";
+         vertSizing = "height";
+         position = "9 31";
+         extent = "203 264";
+         minExtent = "8 2";
+         enabled = "1";
+         visible = "1";
+         clipToParent = "1";
+         color = "255 255 255 200";
+
+         new GuiScrollCtrl() {
+            profile = "GuiScrollProfile";
+            horizSizing = "right";
+            vertSizing = "height";
+            position = "3 3";
+            extent = "197 183";
+            minExtent = "8 2";
+            enabled = "1";
+            visible = "1";
+            clipToParent = "1";
+            willFirstRespond = "0";
+            hScrollBar = "dynamic";
+            vScrollBar = "dynamic";
+            constantThumbHeight = "0";
+            childMargin = "0 0";
+            rowHeight = "40";
+            columnWidth = "30";
+
+            new GuiTextListCtrl(MusicPlayerList) {
+               profile = "GuiTextListProfile";
+               horizSizing = "right";
+               vertSizing = "bottom";
+               position = "1 1";
+               extent = "180 752";
+               minExtent = "8 2";
+               enabled = "1";
+               visible = "1";
+               clipToParent = "1";
+               command = "clickMusicListObject();";
+               enumerate = "0";
+               resizeCell = "1";
+               columns = "0";
+               fitParentWidth = "1";
+               clipColumnText = "0";
+            };
+         };
+         new GuiBitmapButtonCtrl() {
+            profile = "BlockButtonProfile";
+            horizSizing = "right";
+            vertSizing = "top";
+            position = "27 227";
+            extent = "151 30";
+            minExtent = "8 2";
+            enabled = "1";
+            visible = "1";
+            clipToParent = "1";
+            command = "alxStop($MusicPlayer::CurrentMusic);";
+            text = "Stop";
+            groupNum = "-1";
+            buttonType = "PushButton";
+            bitmap = "base/client/ui/button1";
+            lockAspectRatio = "0";
+            alignLeft = "0";
+            alignTop = "0";
+            overflowImage = "0";
+            mKeepCached = "0";
+            mColor = "255 200 200 255";
+         };
+         new GuiSliderCtrl(MusicPlayerVolume) {
+            profile = "GuiSliderProfile";
+            horizSizing = "right";
+            vertSizing = "top";
+            position = "3 190";
+            extent = "197 32";
+            minExtent = "8 2";
+            enabled = "1";
+            visible = "1";
+            clipToParent = "1";
+            command = "changeMusicPlayerVolume();";
+            range = "0.000000 2.000000";
+            ticks = "5";
+            value = "1";
+            snap = "0";
+         };
+      };
+   };
+};
+//--- OBJECT WRITE END ---
